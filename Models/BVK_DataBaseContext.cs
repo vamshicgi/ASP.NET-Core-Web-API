@@ -30,8 +30,8 @@ namespace ASP.NETCoreWebAPI.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=LAPTOP-J8UIVD0P\\BVK_SQL_EXPRESS;Database=BVK_DataBase;Trusted_Connection=True;");
+                optionsBuilder.UseLazyLoadingProxies();
+                // optionsBuilder.UseSqlServer("Server=LAPTOP-J8UIVD0P\\BVK_SQL_EXPRESS;Database=BVK_DataBase;Trusted_Connection=True;");
             }
         }
 

@@ -32,6 +32,20 @@ namespace ASP.NETCoreWebAPI
             services.AddControllers();
             services.AddDbContext<BVK_DataBaseContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:BVKDB"]));
             services.AddScoped<IDataRepository<Location, LocationDTO>, LocationDataManager>();
+
+            services.AddCors();
+            // Default Policy
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:44351", "http://localhost:4200")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod();
+                    });
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -60,6 +74,8 @@ namespace ASP.NETCoreWebAPI
             app.UseRouting();
 
             app.UseAuthorization();
+            // in general
+            app.UseCors();
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
