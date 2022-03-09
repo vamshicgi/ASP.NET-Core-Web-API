@@ -1,0 +1,11 @@
+﻿==========================================================================
+Swashbuckle.AspNetCore
+
+===========================================================================
+Install-Package Microsoft.EntityFrameworkCore
+Install-Package Microsoft.EntityFrameworkCore.Tools
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Scaffold-DbContext "Server=LAPTOP-J8UIVD0P\BVK_SQL_EXPRESS;Database=BVK_DataBase;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+===========================================================================
+
